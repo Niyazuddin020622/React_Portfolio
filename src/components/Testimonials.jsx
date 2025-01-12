@@ -49,7 +49,7 @@ const Testimonials = () => {
         },
         {
             id: 7,
-            name: "Vivek Pandey",
+            name: "Saif Ali",
             rating: 4,
             text: "Great value for the money. Highly recommended.",
             role: "Entrepreneur"
@@ -63,14 +63,14 @@ const Testimonials = () => {
         },
         {
             id: 9,
-            name: "Suresh Kumar",
+            name: "Arif Hussain",
             rating: 5,
             text: "One of the best experiences I’ve had. True professionals.",
             role: "Business Owner"
         },
         {
             id: 10,
-            name: "Alok Verma",
+            name: "Hamza Babu",
             rating: 4,
             text: "Satisfied with the quality and the team’s dedication.",
             role: "Consultant"
