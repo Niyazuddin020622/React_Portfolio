@@ -31,7 +31,7 @@ const Hero = () => {
             {/* Resume Download Button */}
             <button className="bg-black text-white px-5 py-3 rounded-md font-semibold hover:bg-gray-800 transition-all duration-200">
               <a
-                href="https://drive.google.com/file/d/18mKuCZfuqPVgOIO7cLif9QvdtSFABun4/view?usp=drive_link"
+                href="https://drive.google.com/file/d/18mKuCZfuqPVgOIO7cLif9QvdtSFABun4/view"
               >
                 Download Resume
               </a>
