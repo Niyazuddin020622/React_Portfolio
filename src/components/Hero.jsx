@@ -19,7 +19,7 @@ const Hero = () => {
               I'm Niyazuddin <span className="text-red-500">Ansari</span>
             </h1>
             <p className="md:text-2xl text-xl mb-4">
-              Full Stack Developer, Android App  & AI/ML Enthusiast
+              Full Stack Developer, App & AI/ML Enthusiast
             </p>
             <p className="mb-4">
               I specialize in building robust web applications using React,
