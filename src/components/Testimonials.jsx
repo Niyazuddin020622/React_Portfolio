@@ -14,14 +14,14 @@ const Testimonials = () => {
     const testimonials = [
         {
             id: 1,
-            name: "Nitya Ansari",
+            name: "Rani Ansari",
             rating: 5,
             text: "Lorem ipsum dolor sit amet consectetur, adipisicing elit.",
             role: "CEO, Webelite Builders"
         },
         {
             id: 2,
-            name: "Rani Kumari",
+            name: "Suresh Kuamar Pandey",
             rating: 4,
             text: "The service was amazing and met all my expectations!",
             role: "Software Engineer"
@@ -49,7 +49,7 @@ const Testimonials = () => {
         },
         {
             id: 7,
-            name: "Saif Ali",
+            name: "Jay Fuletra",
             rating: 4,
             text: "Great value for the money. Highly recommended.",
             role: "Entrepreneur"
@@ -70,7 +70,7 @@ const Testimonials = () => {
         },
         {
             id: 10,
-            name: "Hamza Babu",
+            name: "Sujeet Sharma",
             rating: 4,
             text: "Satisfied with the quality and the team’s dedication.",
             role: "Consultant"
