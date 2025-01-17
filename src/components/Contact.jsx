@@ -15,22 +15,29 @@ const Contact = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
+  
     const contactData = { name, email, message };
-
+    console.log('Contact Data:', contactData); // Log the data for debugging
+  
     try {
-      const response = await axios.post('https://your-backend-url.onrender.com/api/contact', contactData);
+      const response = await axios.post('https://portfolio-backend-1dex.onrender.com/', contactData, {
+        headers: {
+          'Content-Type': 'application/json', // Ensure content type is JSON
+        }
+      });
+      console.log('Response:', response.data);
       setStatus('Message sent successfully!');
       setStatusColor('text-green-500'); // Set color to green
       setName('');
       setEmail('');
       setMessage('');
     } catch (error) {
+      console.error('Error:', error.response ? error.response.data : error.message);
       setStatus('Failed to send message. Please try again later.');
       setStatusColor('text-red-500'); // Set color to red
     }
   };
-
+  
   return (
     <section id="contact" className="z-50 bg-gray-800 relative py-10 px-5 md:px-0">
       <div className="mb-16 max-w-7xl mx-auto">

@@ -20,9 +20,9 @@ mongoose
 
 // Define Contact Schema and Model
 const contactSchema = new mongoose.Schema({
-  name: String,
-  email: String,
-  message: String,
+  name: { type: String, required: true },
+  email: { type: String, required: true },
+  message: { type: String, required: true },
 });
 
 const Contact = mongoose.model('contacts', contactSchema);
@@ -44,6 +44,12 @@ app.post('/api/contact', async (req, res) => {
   }
 });
 
+// Default Route for Testing
+app.get('/', (req, res) => {
+  res.send('API is running...');
+});
+
+// Start Server
 const PORT = 3000;
 app.listen(PORT, () => {
   console.log(`Server running on http://localhost:${PORT}`);
