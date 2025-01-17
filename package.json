@@ -16,11 +16,14 @@
     "build": "^0.1.4",
     "cors": "^2.8.5",
     "express": "^4.21.2",
+    "framer-motion": "^11.18.1",
     "lottie-react": "^2.4.0",
     "lucide-react": "^0.453.0",
     "mongoose": "^8.9.4",
+    "nodemon": "^3.1.9",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
+    "react-hook-form": "^7.54.2",
     "swiper": "^11.1.14",
     "tsparticles": "^3.5.0"
   },
@@ -35,8 +38,8 @@
     "eslint-plugin-react-hooks": "^5.1.0-rc.0",
     "eslint-plugin-react-refresh": "^0.4.12",
     "globals": "^15.9.0",
-    "postcss": "^8.4.47",
-    "tailwindcss": "^3.4.14",
+    "postcss": "^8.5.1",
+    "tailwindcss": "^3.4.17",
     "vite": "^5.4.8"
   }
 }

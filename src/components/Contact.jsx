@@ -19,7 +19,7 @@ const Contact = () => {
     const contactData = { name, email, message };
 
     try {
-      const response = await axios.post('http://localhost:5000/api/contact', contactData);
+      const response = await axios.post('https://portfolio-backend-1dex.onrender.com/', contactData);
       setStatus('Message sent successfully!');
       setStatusColor('text-green-500'); // Set color to green
       setName('');
