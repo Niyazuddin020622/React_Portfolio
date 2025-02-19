@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import Csharp from '../assets/certificate/Csharp.png';
+import Csharp from '../assets/certificate/csharp.png';
 import CodeSoft from '../assets/certificate/codesoft.png';
 import CCNA from '../assets/certificate/ccna.png';
 import JavaLanguages from '../assets/certificate/java.png';
