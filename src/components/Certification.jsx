@@ -54,6 +54,23 @@ const Certifications = () => {
                     ))}
                 </Swiper>
             </div>
+
+            {/* Modal for showing full image */}
+            {selectedCert && (
+                <div className="fixed inset-0 bg-black bg-opacity-75 flex justify-center items-center z-50">
+                    <div className="bg-white p-6 rounded-lg shadow-lg max-w-lg w-full relative flex flex-col items-center">
+                        <button 
+                            className="absolute top-2 right-3 text-red-600 text-3xl font-bold" 
+                            onClick={() => setSelectedCert(null)}
+                        >
+                            &times;
+                        </button>
+                        <h2 className="text-2xl font-semibold text-gray-800 mb-4">{selectedCert.title}</h2>
+                        <img src={selectedCert.image} alt={selectedCert.title} className="w-auto max-h-96 rounded-lg" />
+                        <p className="text-gray-600 text-sm mt-2">{selectedCert.platform}</p>
+                    </div>
+                </div>
+            )}
         </section>
     );
 };
