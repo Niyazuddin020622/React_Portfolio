@@ -1,21 +1,18 @@
 import React from 'react'
-import Github from '../assets/Github.png'
+import { FaGithub } from 'react-icons/fa'
 
 const Cards = ({ item }) => {
     return (
-        <div className='border border-red-500 rounded-lg w-[350px] lg:w-[400px] bg-red-50'>
-            <img src={item.image} alt="" className='rounded-lg' />
+        <div className='bg-white shadow-lg rounded-xl overflow-hidden w-[300px] sm:w-[350px] transform transition-transform hover:scale-105'>
+            <img src={item.image} alt={item.title} className='w-full h-40 object-cover' />
             <div className='p-4'>
-                <h1 className='font-semibold text-xl mb-2'>{item.title}</h1>
-                <p>{item.desc}</p>
-                <div className='flex gap-3 mt-4'>
-                    
-                    <button className='bg-black text-white px-3 py-2 rounded-md'>
-                        <a href={item.github} target='_blank' className='flex gap-1'>
-                            <img src={Github} alt="" className='w-6'/>
-                            Github Link
-                        </a>
-                    </button>
+                <h3 className='text-xl font-semibold text-gray-900'>{item.title}</h3>
+                <p className='text-gray-600 text-sm mt-2'>{item.desc}</p>
+                <div className='mt-4 flex justify-between items-center'>
+                    <a href={item.github} target='_blank' rel='noopener noreferrer' className='text-white bg-gray-900 px-4 py-2 rounded-md flex items-center space-x-2 hover:bg-gray-700 transition'>
+                        <FaGithub size={18} />
+                        <span>GitHub</span>
+                    </a>
                 </div>
             </div>
         </div>
@@ -23,4 +20,3 @@ const Cards = ({ item }) => {
 }
 
 export default Cards
-

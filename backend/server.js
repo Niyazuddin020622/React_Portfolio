@@ -44,6 +44,7 @@ app.post('/api/contact', async (req, res) => {
   }
 });
 
+
 // Default Route for Testing
 app.get('/', (req, res) => {
   res.send('API is running...');

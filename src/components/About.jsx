@@ -24,7 +24,7 @@ const About = () => {
                         <h2 className='text-base text-red-600 font-semibold tracking-wide uppercase'>About Me</h2>
                         <p className='mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl'>Hi, I'm Niyazuddin Ansari</p>
                         <p className='mt-4 max-w-2xl text-xl text-gray-500 lg:mx-auto'>
-                            A Full-Stack Developer with expertise in web development, AI/ML, and the MERN stack.
+                            A Full-Stack Developer with expertise in web development, AI/ML, and the MERN stack, with a strong foundation in Data Structures & Algorithms (DSA).
                         </p>
                     </div>
                     <div className='mt-10'>
@@ -32,7 +32,7 @@ const About = () => {
                             <div>
                                 <h3 className='text-2xl font-semibold text-gray-900'>My Journey</h3>
                                 <p className='mt-4 text-lg text-gray-600'>
-                                    I started my journey in web development with a passion for creating intuitive and scalable applications. With proficiency in the MERN stack (MongoDB, Express.js, React, and Node.js), I have built projects such as a full-stack food ordering website, a job portal, and even a LinkedIn clone. My projects demonstrate my ability to integrate powerful backend solutions with sleek, user-friendly frontend designs.
+                                    I started my journey in web development with a passion for creating intuitive and scalable applications. With proficiency in the MERN stack (MongoDB, Express.js, React, and Node.js), I have built projects such as a full-stack food ordering website, a student portal, child adoption,  and even a Flipkart clone. Along the way, I've strengthened my problem-solving skills with DSA, especially in Java, to enhance my coding efficiency. My projects demonstrate my ability to integrate powerful backend solutions with sleek, user-friendly frontend designs.
                                 </p>
                                 <img src={MernStack} alt="" className='p-2 rounded-lg w-52 mt-4' />
                             </div>
@@ -102,7 +102,7 @@ const About = () => {
                     <div className='mt-12'>
                         <h3 className='text-2xl font-semibold text-gray-900'>More About Me</h3>
                         <p className='mt-4 text-lg text-gray-600'>
-                            Apart from coding, I am passionate about learning new technologies and keeping myself up-to-date with the latest trends in web development. I also run a  where I teach JavaScript, MERN Stack development, WordPress, and App Development , Website Development in Java helping others dive deep into the world of programming and technology.
+                            Apart from coding, I am passionate about learning new technologies and keeping myself up-to-date with the latest trends in web development. I also run a blog where I teach JavaScript, MERN Stack development, WordPress, App Development, and Website Development in Java, helping others dive deep into the world of programming and technology. With a strong foundation in DSA, I aim to continuously improve my problem-solving skills and contribute to open-source projects.
                         </p>
                     </div>
                 </div>

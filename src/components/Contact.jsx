@@ -11,7 +11,7 @@ const Contact = () => {
   const [email, setEmail] = useState('');
   const [message, setMessage] = useState('');
   const [status, setStatus] = useState('');
-  const [statusColor, setStatusColor] = useState(''); // New state to track message color
+  const [statusColor, setStatusColor] = useState('');
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -19,91 +19,78 @@ const Contact = () => {
     const contactData = { name, email, message };
 
     try {
-      const response = await axios.post('http://localhost:3000/api/contact', contactData);
+      await axios.post('http://localhost:3000/api/contact', contactData);
       setStatus('Message sent successfully!');
-      setStatusColor('text-green-500'); // Set color to green
+      setStatusColor('text-green-500');
       setName('');
       setEmail('');
       setMessage('');
     } catch (error) {
       setStatus('Failed to send message. Please try again later.');
-      setStatusColor('text-red-500'); // Set color to red
+      setStatusColor('text-red-500');
     }
   };
 
   return (
-    <section id="contact" className="z-50 bg-gray-800 relative py-10 px-5 md:px-0">
-      <div className="mb-16 max-w-7xl mx-auto">
-        <div className="flex flex-col md:flex-row justify-between items-center">
-          <div className="md:w-1/2 mb-8 ml-2 md:mb-0">
-            <h2 className="text-3xl font-bold mb-3 text-red-500">Get in Touch</h2>
-            <p className="mb-4 text-white/85">
-              I'm always open to new opportunities and collaboration. Feel free to reach out!
-            </p>
-            <div className="flex space-x-4">
-              <a href="#" className="text-foreground/60 hover:text-foreground/80">
-                <img src={facebook} alt="" className="h-6 w-6" />
+    <section id="contact" className="relative py-16 px-5 md:px-0 bg-gradient-to-br from-gray-900 to-black text-white">
+      <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center">
+        {/* Left Side - Info & Socials */}
+        <div className="md:w-1/2 text-center md:text-left">
+          <h2 className="text-4xl font-bold mb-4 text-red-500">Get in Touch</h2>
+          <p className="mb-6 text-white/85">Always open to collaboration and new opportunities!</p>
+          <div className="flex justify-center md:justify-start space-x-4">
+            {[facebook, instagram, linkedin].map((icon, index) => (
+              <a key={index} href="#" className="hover:scale-110 transition duration-300">
+                <img src={icon} alt="Social Icon" className="h-8 w-8" />
               </a>
-              <a href="#" className="text-foreground/60 hover:text-foreground/80">
-                <img src={instagram} alt="" className="h-6 w-6" />
-              </a>
-              <a href="#" className="text-foreground/60 hover:text-foreground/80">
-                <img src={linkedin} alt="" className="h-6 w-6" />
-              </a>
-            </div>
-            <Lottie animationData={contact} className="w-[350px] mx-auto lg:w-[500px]" />
+            ))}
           </div>
-          <form
-            onSubmit={handleSubmit}
-            className="w-full md:w-1/2 bg-gray-100 rounded-lg border border-red-300 shadow-lg shadow-red-500 p-10"
-          >
-            <h1 className="text-gray-900 text-4xl font-bold mb-7">Contact Me</h1>
-            <div className="mb-4">
-              <label htmlFor="name" className="block text-sm font-medium text-gray-700">
-                Name
-              </label>
-              <input
-                type="text"
-                id="name"
-                placeholder="Full Name"
-                value={name}
-                onChange={(e) => setName(e.target.value)}
-                className="mt-1 p-2 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
-              />
-            </div>
-            <div className="mb-4">
-              <label htmlFor="email" className="block text-sm font-medium text-gray-700">
-                Email
-              </label>
-              <input
-                type="email"
-                id="email"
-                placeholder="Email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                className="mt-1 p-2 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
-              />
-            </div>
-            <div className="mb-4">
-              <label htmlFor="message" className="block text-sm font-medium text-gray-700">
-                Message
-              </label>
-              <textarea
-                id="message"
-                placeholder="Enter Your Message"
-                value={message}
-                onChange={(e) => setMessage(e.target.value)}
-                className="mt-1 p-2 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
-              />
-            </div>
-            <button className="bg-red-500 text-white px-3 py-2 rounded-lg">Send Message</button>
-            {status && (
-              <p className={`mt-4 ${statusColor}`}>
-                <strong>{status}</strong>
-              </p>
-            )}
-          </form>
+          <Lottie animationData={contact} className="w-[350px] mx-auto lg:w-[500px]" />
         </div>
+
+        {/* Right Side - Contact Form */}
+        <form
+          onSubmit={handleSubmit}
+          className="w-full md:w-1/2 bg-gray-100 text-gray-900 rounded-xl border border-red-400 shadow-lg p-8"
+        >
+          <h1 className="text-3xl font-bold mb-6 text-center">Contact Me</h1>
+          <div className="mb-4">
+            <label htmlFor="name" className="block text-sm font-semibold">Name</label>
+            <input
+              type="text"
+              id="name"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+              className="mt-1 p-3 block w-full rounded-lg border border-gray-300 focus:ring-2 focus:ring-red-500 shadow-sm"
+              placeholder="Your Full Name"
+            />
+          </div>
+          <div className="mb-4">
+            <label htmlFor="email" className="block text-sm font-semibold">Email</label>
+            <input
+              type="email"
+              id="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              className="mt-1 p-3 block w-full rounded-lg border border-gray-300 focus:ring-2 focus:ring-red-500 shadow-sm"
+              placeholder="Your Email"
+            />
+          </div>
+          <div className="mb-4">
+            <label htmlFor="message" className="block text-sm font-semibold">Message</label>
+            <textarea
+              id="message"
+              value={message}
+              onChange={(e) => setMessage(e.target.value)}
+              className="mt-1 p-3 block w-full rounded-lg border border-gray-300 focus:ring-2 focus:ring-red-500 shadow-sm h-32 resize-none"
+              placeholder="Enter your message"
+            ></textarea>
+          </div>
+          <button className="w-full bg-red-500 hover:bg-red-600 text-white py-3 rounded-lg shadow-md text-lg font-semibold transition duration-300">
+            Send Message
+          </button>
+          {status && <p className={`mt-4 text-center ${statusColor} font-semibold`}>{status}</p>}
+        </form>
       </div>
     </section>
   );
