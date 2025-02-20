@@ -7,6 +7,7 @@ import linkedin from "../assets/linkedin.png";
 import reactLogo from "../assets/React.png";
 import reduxLogo from "../assets/Redux.png";
 import tailwind from "../assets/Tailwind Css.png";
+import Resume from '../assets/Resume.pdf'
 
 const Hero = () => {
   return (
@@ -31,7 +32,7 @@ const Hero = () => {
             </p>
             {/* Resume Download Button */}
             <a
-              href="https://drive.google.com/file/d/18mKuCZfuqPVgOIO7cLif9QvdtSFABun4/view"
+              href={Resume}
               target="_blank"
               rel="noopener noreferrer"
               className="bg-black text-white px-5 py-3 rounded-md font-semibold hover:bg-red-600 transition-all duration-300 inline-block w-max"
