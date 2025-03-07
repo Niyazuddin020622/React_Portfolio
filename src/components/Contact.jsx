@@ -1,17 +1,20 @@
-import React, { useState } from 'react';
-import axios from 'axios';
-import facebook from '../assets/facebook.png';
-import instagram from '../assets/instagram.png';
-import linkedin from '../assets/linkedin.png';
-import Lottie from 'lottie-react';
-import contact from '../assets/Contact.json';
+import React, { useState } from "react";
+import axios from "axios";
+import facebook from "../assets/facebook.png";
+import instagram from "../assets/instagram.png";
+import linkedin from "../assets/linkedin.png";
+import Lottie from "lottie-react";
+import contact from "../assets/Contact.json";
+
+// Define API URL
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || "http://localhost:3000";
 
 const Contact = () => {
-  const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
-  const [message, setMessage] = useState('');
-  const [status, setStatus] = useState('');
-  const [statusColor, setStatusColor] = useState('');
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [message, setMessage] = useState("");
+  const [status, setStatus] = useState("");
+  const [statusColor, setStatusColor] = useState("");
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -19,15 +22,15 @@ const Contact = () => {
     const contactData = { name, email, message };
 
     try {
-      await axios.post('http://localhost:3000/api/contact', contactData);
-      setStatus('Message sent successfully!');
-      setStatusColor('text-green-500');
-      setName('');
-      setEmail('');
-      setMessage('');
+      const response = await axios.post(`${API_BASE_URL}/api/contact`, contactData);
+      setStatus(response.data.message);
+      setStatusColor("text-green-500");
+      setName("");
+      setEmail("");
+      setMessage("");
     } catch (error) {
-      setStatus('Failed to send message. Please try again later.');
-      setStatusColor('text-red-500');
+      setStatus(error.response?.data?.message || "❌ Failed to send message. Please try again later.");
+      setStatusColor("text-red-500");
     }
   };
 
@@ -49,47 +52,67 @@ const Contact = () => {
         </div>
 
         {/* Right Side - Contact Form */}
-        <form
+        <form 
           onSubmit={handleSubmit}
           className="w-full md:w-1/2 bg-gray-100 text-gray-900 rounded-xl border border-red-400 shadow-lg p-8"
+          name="contact"
+          method="POST"
+          data-netlify="true"
+          data-netlify-honeypot="bot-field"
         >
-          <h1 className="text-3xl font-bold mb-6 text-center">Contact Me</h1>
+          <input type="hidden" name="form-name" value="contact" />
+          <p hidden>
+            <label>
+              Don’t fill this out: <input name="bot-field" />
+            </label>
+          </p>
+
           <div className="mb-4">
             <label htmlFor="name" className="block text-sm font-semibold">Name</label>
             <input
               type="text"
               id="name"
+              name="name"
               value={name}
               onChange={(e) => setName(e.target.value)}
+              required
               className="mt-1 p-3 block w-full rounded-lg border border-gray-300 focus:ring-2 focus:ring-red-500 shadow-sm"
               placeholder="Your Full Name"
             />
           </div>
+
           <div className="mb-4">
             <label htmlFor="email" className="block text-sm font-semibold">Email</label>
             <input
               type="email"
               id="email"
+              name="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
+              required
               className="mt-1 p-3 block w-full rounded-lg border border-gray-300 focus:ring-2 focus:ring-red-500 shadow-sm"
               placeholder="Your Email"
             />
           </div>
+
           <div className="mb-4">
             <label htmlFor="message" className="block text-sm font-semibold">Message</label>
             <textarea
               id="message"
+              name="message"
               value={message}
               onChange={(e) => setMessage(e.target.value)}
+              required
               className="mt-1 p-3 block w-full rounded-lg border border-gray-300 focus:ring-2 focus:ring-red-500 shadow-sm h-32 resize-none"
               placeholder="Enter your message"
             ></textarea>
           </div>
+
           <button className="w-full bg-red-500 hover:bg-red-600 text-white py-3 rounded-lg shadow-md text-lg font-semibold transition duration-300">
             Send Message
           </button>
-          {status && <p className={`mt-4 text-center ${statusColor} font-semibold`}>{status}</p>}
+
+          {status && <p className={`mt-4 text-center ${statusColor}`}>{status}</p>}
         </form>
       </div>
     </section>
